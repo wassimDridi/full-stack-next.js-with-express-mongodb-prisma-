@@ -1,0 +1,68 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+
+
+model course {
+  id          Int     @id @default(autoincrement())
+  name        String
+  description String?
+  prix      Int?
+  imgCourse String?
+}
+
+model school {
+  id          Int    @id @default(autoincrement())
+  name        String
+  address     String
+  phoneNumber String
+  principal   String
+  imgSchool String?
+}
+
+model student {
+  id       Int    @id @default(autoincrement())
+  name     String
+  age      Int?
+  schoolId Int
+  email    String @unique
+  password String
+
+  @@index([schoolId], map: "Student_schoolId_fkey")
+}
+model admin {
+  id       Int    @id @default(autoincrement())
+  name     String
+  email    String @unique
+  password String
+}
+model contact {
+  id       Int    @id @default(autoincrement())
+  email    String 
+  description String
+}
+
+model StudentCourse {
+  id       Int    @id @default(autoincrement())
+  studentId Int      
+  courseId  Int      
+}
+
+
+
+model teacher {
+  id       Int    @id @default(autoincrement())
+  name     String
+  age      Int?
+  schoolId Int
+  courseId Int
+
+  @@index([courseId], map: "Teacher_courseId_fkey")
+  @@index([schoolId], map: "Teacher_schoolId_fkey")
+}

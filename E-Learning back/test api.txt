@@ -1,0 +1,64 @@
+{
+  "name": "École primaire XYZ",
+  "address": "123 Rue de l'École",
+  "phoneNumber": "123-456-7890",
+  "principal": "M. Dupont" ,
+   "imgSchool" : ""
+}
+POST  http://localhost:3001/api/school/
+
+{
+  "name": "Mathématiques",
+  "description": "Cours de mathématiques avancées",
+	"prix" : 25 ,
+	"imgCourse" : "path"
+}
+
+POST  http://localhost:3001/api/course/
+
+{
+  "name": "Jean Dupont",
+  "age": 17,
+  "email": "",
+  "schoolId": 1 ,
+   "password" : ""
+}
+
+POST http://localhost:3001/api/student/
+
+{
+  "name": "John Doe",
+  "age": 35,
+  "schoolId": 1,
+  "courseId": 1
+}
+
+
+http://localhost:3001/api/teacher/
+
+
+{
+  "name": "node js",
+  "teacherId": 2,
+  "courseId": 2
+}
+
+
+http://localhost:3001/api/class/
+
+{
+    "studentId" : 2,   
+    "courseId" : 2
+  }
+http://localhost:3001/api/studentCourse/
+
+{
+    "studentId" : 2,   
+    "courseId" : 2
+  }
+http://localhost:3001/api/admin/
+{
+    "email" : "",
+    "description" : ""
+  }
+http://localhost:3001/api/contact/
